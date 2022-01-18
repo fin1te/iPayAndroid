@@ -36,6 +36,7 @@ class BaseFragment : Fragment() {
     }
 
     fun openCartFragment(shopname : String) {
+        viewModel.currentshopcode = shopname
         viewModel.currentshop.value = "Welcome To $shopname"
         val action = BaseFragmentDirections.actionBaseFragmentToCartFragment(shopname)
         findNavController().navigate(action)

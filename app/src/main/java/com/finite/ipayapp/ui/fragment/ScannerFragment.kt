@@ -59,7 +59,9 @@ class ScannerFragment : Fragment() {
 
         codeScanner.decodeCallback = DecodeCallback {
             activity.runOnUiThread {
-                Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
+                viewModel.scancode = it.text
+                //Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
+                viewModel.addItemFromDB(it.text)
                 findNavController().navigate(ScannerFragmentDirections.actionScannerFragmentToCartFragment())
             }
         }
