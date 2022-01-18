@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "704893217453",
+    "firebase_url": "https://ipay-app-cf421-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "ipay-app-cf421",
+    "storage_bucket": "ipay-app-cf421.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:704893217453:android:77a1325b6b62a356f6f424",
+        "android_client_info": {
+          "package_name": "com.finite.ipayapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "704893217453-3q2a6isv4jill41eod2ffcr2vhen88tu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.finite.ipayapp",
+            "certificate_hash": "67b953280b3d06613512a2fb444029a87b98dd66"
+          }
+        },
+        {
+          "client_id": "704893217453-pder043ruvv5d56l365jrjg702l0ab4m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs8PS-mDWmGn7TmR3f5DkqlZEeBZVKK3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "704893217453-pder043ruvv5d56l365jrjg702l0ab4m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
