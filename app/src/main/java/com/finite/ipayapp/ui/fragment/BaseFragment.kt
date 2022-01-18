@@ -37,7 +37,7 @@ class BaseFragment : Fragment() {
     }
 
     fun openCartFragment(shopname : String) {
-        viewModel.currentshopcode = shopname
+        viewModel.currentshopcode.value = shopname
         viewModel.currentshop.value = "Welcome To $shopname"
         val action = BaseFragmentDirections.actionBaseFragmentToCartFragment(shopname)
         findNavController().navigate(action)
@@ -49,9 +49,11 @@ class BaseFragment : Fragment() {
         viewModel.vmName.clear()
         viewModel.vmPrice.clear()
 
-        viewModel.currentshopcode = "defaultShopCode"
+        viewModel.currentshopcode.value = "defaultShopCode"
         viewModel.scancode = "defaultScanCode"
         viewModel.currentshop.value = "test2"
         viewModel.vmTotal.value = 0
+
+        viewModel.vmPaymentId.value = "default"
     }
 }

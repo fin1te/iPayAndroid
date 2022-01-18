@@ -25,17 +25,20 @@ class SharedViewModel : ViewModel() {
     val lifestyle = "LifeStyle"
 
     val currentshop = MutableLiveData<String>("test2")
-    var currentshopcode = "defaultShopCode"
+    var currentshopcode = MutableLiveData<String>("defaultShopCode")
     var scancode = "defaultScanCode"
+    var shopNameBill = "defaultBillName"
 
     var vmQty : MutableList<String> = mutableListOf()
     var vmName : MutableList<String> = mutableListOf()
     var vmPrice : MutableList<String> = mutableListOf() // IMP : DO ToString when getting data
     val vmTotal = MutableLiveData<Int>(0)
+    var vmPaymentId = MutableLiveData<String>("default")
 
 
     fun addItemFromDB(code: String) {
-        database = FirebaseDatabase.getInstance().getReference(currentshopcode)
+        database = FirebaseDatabase.getInstance().getReference(currentshopcode.value!!)
+        //database = FirebaseDatabase.getInstance().getReference(currentshopcode)
         database.child(scancode).get().addOnSuccessListener {
             if (it.exists()){
 

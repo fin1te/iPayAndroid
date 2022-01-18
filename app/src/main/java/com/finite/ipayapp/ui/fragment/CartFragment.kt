@@ -106,5 +106,8 @@ class CartFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         Log.d("CartonResume", "CartonResume:")
+        if(!viewModel.vmPaymentId.value.equals("default")) {
+            findNavController().navigate(CartFragmentDirections.actionCartFragmentToBillFragment(paymentId = viewModel.vmPaymentId.value!!, shopName = viewModel.shopNameBill))
+        }
     }
 }

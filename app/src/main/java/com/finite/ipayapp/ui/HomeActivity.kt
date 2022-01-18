@@ -3,12 +3,17 @@ package com.finite.ipayapp.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import com.finite.ipayapp.R
-import com.razorpay.PaymentResultListener
+import com.finite.ipayapp.ui.viewModel.SharedViewModel
+import com.razorpay.PaymentData
+import com.razorpay.PaymentResultWithDataListener;
 
-class HomeActivity : AppCompatActivity(), PaymentResultListener {
+class HomeActivity : AppCompatActivity(), PaymentResultWithDataListener  {
+
+    private val viewModel: SharedViewModel by viewModels()
 
     private lateinit var navController: NavController
 
@@ -26,11 +31,14 @@ class HomeActivity : AppCompatActivity(), PaymentResultListener {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
-    override fun onPaymentSuccess(p0: String?) {
-        Toast.makeText(this, "Success : $p0", Toast.LENGTH_SHORT).show()
+    override fun onPaymentSuccess(p0: String?, p1: PaymentData?) {
+        if (p1 != null) {
+            viewModel.vmPaymentId.value = p1.paymentId
+        }
+        //Toast.makeText(this, "Success : $p0 ; ${viewModel.vmPaymentId.value}", Toast.LENGTH_SHORT).show()
     }
 
-    override fun onPaymentError(p0: Int, p1: String?) {
+    override fun onPaymentError(p0: Int, p1: String?, p2: PaymentData?) {
         Toast.makeText(this, "Failed : $p0 ; $p1", Toast.LENGTH_SHORT).show()
     }
 }
