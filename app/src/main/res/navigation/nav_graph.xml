@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph.xml">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/baseFragment">
+    <fragment
+        android:id="@+id/baseFragment"
+        android:name="com.finite.ipayapp.ui.fragment.BaseFragment"
+        android:label="fragment_base"
+        tools:layout="@layout/fragment_base" >
+        <action
+            android:id="@+id/action_baseFragment_to_cartFragment"
+            app:destination="@id/cartFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.finite.ipayapp.ui.fragment.CartFragment"
+        android:label="CartFragment" >
+        <argument
+            android:name="shopname"
+            app:argType="string"
+            android:defaultValue="Test" />
+    </fragment>
 </navigation>
