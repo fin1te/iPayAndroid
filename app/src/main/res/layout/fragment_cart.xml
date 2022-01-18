@@ -103,7 +103,7 @@
                             android:textAlignment="textStart"
                             android:textStyle="bold"
                             android:textSize="15sp"
-                            android:layout_weight="2" />
+                            android:layout_weight="3" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -176,6 +176,7 @@
                 android:id="@+id/payButton"
                 android:textColor="@color/green"
                 app:iconTint="@color/green"
+                android:onClick="@{() -> cartFragment.makePayment()}"
                 style="?attr/materialButtonOutlinedStyle"
                 android:layout_width="wrap_content"
                 android:layout_marginEnd="15dp"

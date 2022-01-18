@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -15,6 +16,8 @@ import com.finite.ipayapp.R
 import com.finite.ipayapp.adapter.CartAdapter
 import com.finite.ipayapp.databinding.FragmentCartBinding
 import com.finite.ipayapp.ui.viewModel.SharedViewModel
+import com.razorpay.Checkout
+import org.json.JSONObject
 
 
 class CartFragment : Fragment() {
@@ -37,12 +40,15 @@ class CartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        Log.d("CartonViewCreated", "CartonViewCreated:")
         binding?.apply {
             sharedVm = viewModel
             cartFragment = this@CartFragment
             lifecycleOwner = viewLifecycleOwner
         }
         //val shopName = args.shopname
+
+        //Checkout.preload(requireActivity().applicationContext)
 
         //binding?.shopTitle?.text = "Welcome to " + args.shopname
 
@@ -65,4 +71,40 @@ class CartFragment : Fragment() {
         findNavController().navigate(CartFragmentDirections.actionCartFragmentToBaseFragment())
     }
 
+    fun makePayment() {
+        val co = Checkout()
+
+        try {
+            val options = JSONObject()
+            options.put("name","iPay App")
+            options.put("description","Charges for Payment")
+            //You can omit the image option to fetch the image from dashboard
+            options.put("image","https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
+            options.put("theme.color", "#3399cc");
+            options.put("currency","INR");
+            //options.put("order_id", "order_DBJOWzybf0sJbb");
+            options.put("amount", viewModel.vmTotal.value?.times(100)) //pass amount in currency subunits
+
+
+            val prefill = JSONObject()
+            prefill.put("email","test@example.com")
+            prefill.put("contact","8369530805")
+
+            options.put("prefill",prefill)
+            co.open(requireActivity(),options)
+        }catch (e: Exception){
+            Toast.makeText(requireContext(),"Error in payment: "+ e.message,Toast.LENGTH_LONG).show()
+            e.printStackTrace()
+        }
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("CartonPausedCalled", "CartonPausedCalled:")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("CartonResume", "CartonResume:")
+    }
 }
