@@ -52,5 +52,6 @@ class BaseFragment : Fragment() {
         viewModel.currentshopcode = "defaultShopCode"
         viewModel.scancode = "defaultScanCode"
         viewModel.currentshop.value = "test2"
+        viewModel.vmTotal.value = 0
     }
 }

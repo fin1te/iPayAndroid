@@ -31,6 +31,7 @@ class SharedViewModel : ViewModel() {
     var vmQty : MutableList<String> = mutableListOf()
     var vmName : MutableList<String> = mutableListOf()
     var vmPrice : MutableList<String> = mutableListOf() // IMP : DO ToString when getting data
+    val vmTotal = MutableLiveData<Int>(0)
 
 
     fun addItemFromDB(code: String) {
@@ -44,6 +45,8 @@ class SharedViewModel : ViewModel() {
                 vmQty.add("1 x ")
                 vmName.add(pname)
                 vmPrice.add(pprice)
+                vmTotal.value = vmTotal.value?.plus(pprice.toInt())
+
 
                 Log.d("ViewModelPassedDataTest","$pname = $pprice")
 

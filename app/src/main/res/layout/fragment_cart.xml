@@ -60,8 +60,9 @@
             android:id="@+id/shopTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="20dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginTop="25dp"
             android:text="@{sharedVm.currentshop.toString()}"
             android:textColor="#232323"
             android:textSize="23sp"
@@ -71,6 +72,7 @@
             app:layout_constraintTop_toBottomOf="@id/headerLl" />
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/cvCart"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             app:cardCornerRadius="15dp"
@@ -136,6 +138,55 @@
                 </LinearLayout>
             </ScrollView>
         </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/totalTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:text="@{@string/total_amount + sharedVm.vmTotal.toString()}"
+            android:textAlignment="textEnd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cvCart" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/totalTv"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/cancelButton"
+                android:textColor="@color/red"
+                app:iconTint="@color/red"
+                style="?attr/materialButtonOutlinedStyle"
+                android:onClick="@{() ->cartFragment.popBack()}"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText" />
+            <Button
+                android:id="@+id/payButton"
+                android:textColor="@color/green"
+                app:iconTint="@color/green"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="wrap_content"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:text="Make Payment"
+                android:layout_weight="1"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fabAddedItem"

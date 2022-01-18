@@ -61,4 +61,8 @@ class CartFragment : Fragment() {
 
     }
 
+    fun popBack() {
+        findNavController().navigate(CartFragmentDirections.actionCartFragmentToBaseFragment())
+    }
+
 }

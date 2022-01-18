@@ -24,6 +24,11 @@
         <action
             android:id="@+id/action_cartFragment_to_scannerFragment"
             app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_baseFragment"
+            app:destination="@id/baseFragment"
+            app:popUpTo="@id/baseFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"
