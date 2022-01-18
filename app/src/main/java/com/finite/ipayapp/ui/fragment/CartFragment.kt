@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.navigation.navArgs
 import com.finite.ipayapp.R
@@ -27,7 +28,6 @@ class CartFragment : Fragment() {
         val fragmentBinding = FragmentCartBinding.inflate(inflater, container, false)
         binding = fragmentBinding
         return fragmentBinding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -36,9 +36,15 @@ class CartFragment : Fragment() {
         binding?.apply {
             sharedVm = viewModel
             cartFragment = this@CartFragment
+            lifecycleOwner = viewLifecycleOwner
         }
+        //val shopName = args.shopname
 
-        binding?.shopTitle?.text = "Welcome to " + args.shopname
+        //binding?.shopTitle?.text = "Welcome to " + args.shopname
+
+        binding?.fabAddedItem?.setOnClickListener {
+            findNavController().navigate(CartFragmentDirections.actionCartFragmentToScannerFragment())
+        }
     }
 
 }

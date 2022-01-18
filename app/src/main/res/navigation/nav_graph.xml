@@ -21,5 +21,18 @@
             android:name="shopname"
             app:argType="string"
             android:defaultValue="Test" />
+        <action
+            android:id="@+id/action_cartFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.finite.ipayapp.ui.fragment.ScannerFragment"
+        android:label="ScannerFragment" >
+        <action
+            android:id="@+id/action_scannerFragment_to_cartFragment"
+            app:destination="@id/cartFragment"
+            app:popUpTo="@id/cartFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>

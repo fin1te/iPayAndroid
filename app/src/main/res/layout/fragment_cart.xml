@@ -62,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text=""
+            android:text="@{sharedVm.currentshop.toString()}"
             android:textColor="#232323"
             android:textSize="25sp"
             android:textStyle="bold"
@@ -71,7 +71,7 @@
             app:layout_constraintTop_toBottomOf="@id/headerLl" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floating_action_button"
+            android:id="@+id/fabAddedItem"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"

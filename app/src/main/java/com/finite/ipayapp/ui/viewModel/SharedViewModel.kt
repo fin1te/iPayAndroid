@@ -1,5 +1,7 @@
 package com.finite.ipayapp.ui.viewModel
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SharedViewModel : ViewModel() {
@@ -14,5 +16,7 @@ class SharedViewModel : ViewModel() {
     val ss = "Shoppers Stop"
     val lifestyle = "LifeStyle"
 
+    val currentshop = MutableLiveData<String>("test2")
+    //var currentshop: MutableLiveData<String> = _currentshop
 
 }
