@@ -1,5 +1,6 @@
 package com.finite.ipayapp.ui.fragment
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,7 +16,9 @@ import com.budiyev.android.codescanner.*
 import com.finite.ipayapp.R
 import com.finite.ipayapp.databinding.FragmentCartBinding
 import com.finite.ipayapp.databinding.FragmentScannerBinding
+import com.finite.ipayapp.ui.HomeActivity
 import com.finite.ipayapp.ui.viewModel.SharedViewModel
+import java.util.*
 
 private const val CAMERA_REQUEST_CODE = 101
 
@@ -23,6 +26,7 @@ class ScannerFragment : Fragment() {
 
     private lateinit var codeScanner: CodeScanner
     private var binding : FragmentScannerBinding? = null
+    private var binding2 : FragmentCartBinding? = null
     private val viewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
@@ -62,8 +66,21 @@ class ScannerFragment : Fragment() {
                 viewModel.scancode = it.text
                 //Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
                 viewModel.addItemFromDB(it.text)
-                findNavController().navigate(ScannerFragmentDirections.actionScannerFragmentToCartFragment())
             }
+
+            Timer().schedule(object : TimerTask() {
+                override fun run() {
+                    requireActivity().runOnUiThread(Runnable {
+                        findNavController().navigate(ScannerFragmentDirections.actionScannerFragmentToCartFragment())
+                    })
+                }
+            }, 1000)
+            /*
+            Timer().schedule(object : TimerTask() {
+                override fun run() {
+                    findNavController().navigate(ScannerFragmentDirections.actionScannerFragmentToCartFragment())
+                }
+            }, 1000)*/
         }
         scannerView.setOnClickListener {
             codeScanner.startPreview()

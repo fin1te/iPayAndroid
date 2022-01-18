@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.finite.ipayapp.databinding.FragmentBaseBinding
 import com.finite.ipayapp.ui.viewModel.SharedViewModel
@@ -42,4 +43,14 @@ class BaseFragment : Fragment() {
         findNavController().navigate(action)
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.vmQty.clear()
+        viewModel.vmName.clear()
+        viewModel.vmPrice.clear()
+
+        viewModel.currentshopcode = "defaultShopCode"
+        viewModel.scancode = "defaultScanCode"
+        viewModel.currentshop.value = "test2"
+    }
 }

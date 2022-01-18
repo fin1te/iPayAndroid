@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:rowCount="1"
+        android:columnCount="3">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 x "
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:layout_columnWeight="3"
+            android:id="@+id/item_count"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nike Air Max Shoes"
+            android:textAlignment="textStart"
+            android:textSize="15sp"
+            android:layout_columnWeight="7"
+            android:id="@+id/item_name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="890"
+            android:textSize="15sp"
+            android:textAlignment="textStart"
+            android:layout_columnWeight="2"
+            android:id="@+id/item_price"/>
+    </GridLayout>
+</LinearLayout>

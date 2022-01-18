@@ -28,8 +28,9 @@ class SharedViewModel : ViewModel() {
     var currentshopcode = "defaultShopCode"
     var scancode = "defaultScanCode"
 
-
-
+    var vmQty : MutableList<String> = mutableListOf()
+    var vmName : MutableList<String> = mutableListOf()
+    var vmPrice : MutableList<String> = mutableListOf() // IMP : DO ToString when getting data
 
 
     fun addItemFromDB(code: String) {
@@ -38,17 +39,20 @@ class SharedViewModel : ViewModel() {
             if (it.exists()){
 
                 val pname = it.child("pname").value.toString()
-                val pprice = it.child("pprice").value
-                Log.d("PassedDataTest","$pname = $pprice")
+                val pprice = it.child("pprice").value.toString()
+
+                vmQty.add("1 x ")
+                vmName.add(pname)
+                vmPrice.add(pprice)
+
+                Log.d("ViewModelPassedDataTest","$pname = $pprice")
 
             }else{
-                //Toast.makeText(,"does not exists", Toast.LENGTH_SHORT).show()
-                Log.d("DoesNotExists", " currentshopecode = $currentshopcode ; scancode = $scancode")
+                Log.d("ViewModelDoesNotExists", " currentshopecode = $currentshopcode ; scancode = $scancode")
             }
 
         }.addOnFailureListener{
-            //Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()
-            Log.d("Failed","Failed")
+            Log.d("ViewModelFailed","Failed")
         }
     }
 
