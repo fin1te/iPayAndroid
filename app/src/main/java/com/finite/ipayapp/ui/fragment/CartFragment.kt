@@ -76,11 +76,11 @@ class CartFragment : Fragment() {
 
         try {
             val options = JSONObject()
-            options.put("name","iPay App")
-            options.put("description","Charges for Payment")
+            options.put("name","iPay Checkout")
+            options.put("description","Charges for Payment at \n ${viewModel.currentshopcode.value}")
             //You can omit the image option to fetch the image from dashboard
-            options.put("image","https://s3.amazonaws.com/rzp-mobile/images/rzp.png")
-            options.put("theme.color", "#3399cc");
+            options.put("image","https://media.discordapp.net/attachments/821780395615846473/933170312063905882/icon_app.png")
+            options.put("theme.color", "#471CE7");
             options.put("currency","INR");
             //options.put("order_id", "order_DBJOWzybf0sJbb");
             options.put("amount", viewModel.vmTotal.value?.times(100)) //pass amount in currency subunits
