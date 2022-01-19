@@ -110,4 +110,13 @@ class CartFragment : Fragment() {
             findNavController().navigate(CartFragmentDirections.actionCartFragmentToBillFragment(paymentId = viewModel.vmPaymentId.value!!, shopName = viewModel.shopNameBill))
         }
     }
+
+    fun openAboutFragment() {
+        findNavController().navigate(CartFragmentDirections.actionCartFragmentToAboutFragment())
+    }
+
+    fun openGuideFragment() {
+        findNavController().navigate(CartFragmentDirections.actionCartFragmentToGuideFragment())
+    }
+
 }

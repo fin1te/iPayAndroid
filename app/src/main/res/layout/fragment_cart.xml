@@ -42,7 +42,9 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center"
+                android:layout_marginEnd="10dp"
                 android:layout_marginStart="160dp"
+                android:onClick="@{() -> cartFragment.openGuideFragment()}"
                 android:layout_weight="1"
                 android:src="@drawable/ic_question" />
 
@@ -53,6 +55,7 @@
                 android:layout_gravity="center"
                 android:layout_marginEnd="16dp"
                 android:layout_weight="1"
+                android:onClick="@{() -> cartFragment.openAboutFragment()}"
                 android:src="@drawable/ic_information" />
         </LinearLayout>
 

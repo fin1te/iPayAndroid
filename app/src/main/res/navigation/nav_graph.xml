@@ -12,6 +12,12 @@
         <action
             android:id="@+id/action_baseFragment_to_cartFragment"
             app:destination="@id/cartFragment" />
+        <action
+            android:id="@+id/action_baseFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_baseFragment_to_guideFragment"
+            app:destination="@id/guideFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
@@ -32,6 +38,12 @@
         <action
             android:id="@+id/action_cartFragment_to_billFragment"
             app:destination="@id/billFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_guideFragment"
+            app:destination="@id/guideFragment" />
     </fragment>
     <fragment
         android:id="@+id/scannerFragment"
@@ -57,5 +69,21 @@
             app:destination="@id/baseFragment"
             app:popUpTo="@id/baseFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_billFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_billFragment_to_guideFragment"
+            app:destination="@id/guideFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.finite.ipayapp.ui.fragment.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
+    <fragment
+        android:id="@+id/guideFragment"
+        android:name="com.finite.ipayapp.ui.fragment.GuideFragment"
+        android:label="fragment_guide"
+        tools:layout="@layout/fragment_guide" />
 </navigation>

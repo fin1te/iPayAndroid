@@ -52,4 +52,13 @@ class BillFragment : Fragment() {
             findNavController().navigate(BillFragmentDirections.actionBillFragmentToBaseFragment())
         }
     }
+
+    fun openAboutFragment() {
+        findNavController().navigate(BillFragmentDirections.actionBillFragmentToAboutFragment())
+    }
+
+    fun openGuideFragment() {
+        findNavController().navigate(BillFragmentDirections.actionBillFragmentToGuideFragment())
+    }
+
 }

@@ -56,4 +56,14 @@ class BaseFragment : Fragment() {
 
         viewModel.vmPaymentId.value = "default"
     }
+
+    fun openAboutFragment() {
+        findNavController().navigate(BaseFragmentDirections.actionBaseFragmentToAboutFragment())
+    }
+
+    fun openGuideFragment() {
+        findNavController().navigate(BaseFragmentDirections.actionBaseFragmentToGuideFragment())
+    }
+
+
 }
