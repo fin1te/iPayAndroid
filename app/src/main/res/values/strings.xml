@@ -5,4 +5,5 @@
     <string name="total_amount">Total Amount : </string>
     <string name="receipt_id">Receipt ID : \t</string>
     <string name="payment_scs">Payment Successful! Thanks for Shopping with \t</string>
+    <string name="paragraph">This is a Mobile application named Ipay (Intelligence Payment).This application is for a particular departmental store.People will be able to Scan their products, Create a price list and Pay their bills online instead of wasting their times at the billing counters. We intend to save your time from waiting in long queues even if we have fewer items in our carts.</string>
 </resources>
